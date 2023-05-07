@@ -4,7 +4,17 @@ def main():
     word_count = get_word_count(text)
     char_count_dict = get_chars_count(text)
     sorted_list = char_dict_to_sorted_list(char_count_dict)
-    print(sorted_list)
+
+    print(f"--- Begin report of {book_path} ---")
+    print(f"{word_count} words found in the document")
+    print()
+
+    for item in sorted_list:
+        if item["char"].isalpha():
+            print(f"The '{item['char']}' character was found {item['num']} times")
+
+    print()
+    print("--- End report ---")
 
 def get_text(path):
     with open(path) as f:
